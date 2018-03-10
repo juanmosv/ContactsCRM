@@ -1,10 +1,10 @@
 	{
-	  "name": "Sample - OAuth Contacts",
+	  "name": "Contacts CRM",
           "version": "1.0",
   "description": "Uses OAuth to connect to Google's People API and display contacts photos.",
   "manifest_version": 2,
   "browser_action": {
-    "default_title": "FriendBlock, friends face's in a block."
+    "default_title": "Contacts CRM"
   },
   "permissions": [
     "identity",
