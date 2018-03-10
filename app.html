@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-route.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+      <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+      <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.5/angular-material.js"></script>
+     <?!= include('angularcss'); ?> 
+    <?!= include('App'); ?>
+    <base target="_top">
+  </head>
+  <body>
+  <div ng-controller="mainCtrl" ng-cloak="" class="md-inline-form inputdemoBasicUsage" ng-app="MyApp" flex layout-fill>
+  
+    <md-toolbar md-scroll-shrink="" class="header">
+    <div class="md-toolbar-tools" layout-xs="column">
+    <img src="https://lh3.googleusercontent.com/vJuw_0OAOjREz0NLOrXbiOOg3O8saoAWpCH6vHSOh07G3FFpmRksWEpI1sn0vIS2VSsPxDUpu_oeNEjlzIduxDOhxfYyV6GD-_h5eA=h120" width="40px" height="" style="display:block">
+     <div class="content-tl" flex>Contacts CRM</div>
+     <div style="text-align: right;" flex>Create a new contact</div>
+  </div>
+  </md-toolbar>
+  <md-content layout-gt-sm="column" layout-padding="">
+    <div>
+
+    </div>
+  </md-content>
+
+  <md-content layout-padding="">
+  
+    <div class="mainContainer" ng-model="data.content">
+   <!-- Contacts List -->
+   <div ng-repeat="user in data">
+   <form id="form" onsubmit="handleFormSubmit(this)">    
+     <md-card>
+     <md-card-content>
+     <label for="id"></label>
+            <input name="id" style="display:none;" type="text" value="">
+            <label for="handler"></label>
+            <input name="handler" style="display:none;" type="text" value="updateContact">
+
+            <div layout-gt-sm="row">
+   
+            <md-input-container class="md-block">
+            <label>Lead Type</label>
+            <md-select ng-model="selectedLead" ng-model-options="{trackBy: '$value.id'}" ng-if="user[10] == Call">
+            <md-option ng-value="lead" ng-repeat="lead in leads">{{ lead.type }}</md-option>
+            </md-select>
+          </md-input-container>
+   
+          
+          <md-input-container class="md-block">
+            <label>First Contact</label>
+            <md-datepicker ng-model="user[7]"  disabled></md-datepicker>
+          </md-input-container>
+
+          <md-input-container class="md-block" >
+            <label>Last Contact</label>
+            <md-datepicker ng-model="user[8]"  disabled></md-datepicker>
+          </md-input-container>
+
+          <md-input-container class="md-block">
+            <label>Next Contact</label>
+            <md-datepicker ng-model="user[9]" ></md-datepicker>
+          </md-input-container>
+        </div>
+        
+           <div layout-gt-sm="row">
+          <md-input-container class="md-icon-float md-block">
+      <!-- Use floating label instead of placeholder -->
+      <label>Name</label>
+      <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
+      <input ng-model="user[0]" type="text"  ng-required="true">
+    </md-input-container>
+
+    <md-input-container md-no-float class="md-block">
+      <md-icon md-svg-src="img/icons/ic_phone_24px.svg"></md-icon>
+      <input ng-model="user[2]" type="text" placeholder="Phone Number">
+    </md-input-container>
+
+         <md-input-container class="md-block">
+      <!-- Use floating placeholder instead of label -->
+      <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
+      <input ng-model="user[1]" type="email" placeholder="Email">
+    </md-input-container>
+        </div>  
+           
+       <md-input-container class="md-block">
+          <label>Notes</label>
+          <textarea ng-model="user[4]" rows="3" md-select-on-focus></textarea>
+        </md-input-container>
+       
+ 
+ 
+ 
+ </md-card-content>
+</md-card>
+ </form>
+</div>
+    
+    <!-- Contacts form -->
+ <div style="display:none">
+      <form name="userForm">
+
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs="">
+            <label>Company (Disabled)</label>
+            <input ng-model="user.company" disabled="">
+          </md-input-container>
+
+        </div>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>First name</label>
+            <input ng-model="user.firstName">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>Long Last Name That Will Be Truncated And 3 Dots (Ellipsis) Will Appear At The End</label>
+            <input ng-model="theMax">
+          </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+          <label>Address</label>
+          <input ng-model="user.address">
+        </md-input-container>
+
+        <md-input-container md-no-float="" class="md-block">
+          <input ng-model="user.address2" placeholder="Address 2">
+        </md-input-container>
+
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>City</label>
+            <input ng-model="user.city">
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>State</label>
+            <md-select ng-model="user.state">
+              <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                {{state.abbrev}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>Postal Code</label>
+            <input name="postalCode" ng-model="user.postalCode" placeholder="12345" required="" ng-pattern="/^[0-9]{5}$/" md-maxlength="5">
+
+            <div ng-messages="userForm.postalCode.$error" role="alert" multiple="">
+              <div ng-message="required" class="my-message">You must supply a postal code.</div>
+              <div ng-message="pattern" class="my-message">That doesn't look like a valid postal
+                code.
+              </div>
+              <div ng-message="md-maxlength" class="my-message">
+                Don't use the long version silly...we don't need to be that specific...
+              </div>
+            </div>
+          </md-input-container>
+        </div>
+
+        <md-input-container class="md-block">
+          <label>Biography</label>
+          <textarea ng-model="user.biography" md-maxlength="150" rows="5" md-select-on-focus=""></textarea>
+        </md-input-container>
+
+
+      </form>
+      </div>
+    </div>
+    
+  </md-content>
+</div>
+
+  </body>
+</html>
