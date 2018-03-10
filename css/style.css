@@ -1,0 +1,218 @@
+/* Addtional customized css */
+
+aside {
+    background: #1f8dd6; /* same color as selected state on site menu */
+    padding: 0.3em 1em;
+    border-radius: 3px;
+    color: #fff !important;
+    margin: 1em 0 2em 0;
+    font-size: 150%;
+}
+.mainContainer{
+margin:1em 5% 0 5%;
+
+}
+
+.header{
+position: fixed;
+width:100%;
+}
+textarea {
+  width: 100%;
+}
+.content-head {
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 2em 0 1em;
+}
+.content-tl {
+  margin: 1em 0 1em;
+}
+.is-center {
+  text-align: center;
+}
+.button-success {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(28, 184, 65); /* this is a green */
+}
+.button-xlarge {
+  font-size: 125%;
+}
+button {
+  float: right;
+}
+#name, #email {
+  width: 50%;
+}
+
+.tlBar {
+font-size: 10;
+font-weight: bolder;
+font-family:arial,sans-serif;
+text-align: center;
+}
+
+.tlBar-red {
+color:red;
+}
+.tlBar-blue {
+color:rgb(51,102,255);
+}
+.tlBar-green {
+color:rgb(51,204,0);
+}
+.tlBar-yellow {
+color:rgb(255,204,0);
+}
+
+.uk-button-success {
+  background-color:rgb(51,204,0);
+  color: #fff;
+  text-decoration: none !important;
+}
+/* Hover */
+.uk-button-success:hover,
+.uk-button-success:focus {
+  background-color: #8ec73b;
+  color: #fff;
+}
+/* Active */
+.uk-button-success:active,
+.uk-button-success.uk-active {
+  background-color: #72ae41;
+  color: #fff;
+}
+
+.uk-button-primary {
+  background-color: rgb(51,102,255);
+  color: #fff;
+  text-decoration: none !important;
+}
+/* Hover */
+.uk-button-primary:hover,
+.uk-button-primary:focus {
+  background-color: #35b3ee;
+  color: #fff;
+}
+/* Active */
+.uk-button-primary:active,
+.uk-button-primary.uk-active {
+  background-color: #0091ca;
+  color: #fff;
+}
+
+.uk-button-danger {
+  background-color: #da314b;
+  color: #fff;
+  text-decoration: none !important;
+}
+/* Hover */
+.uk-button-danger:hover,
+.uk-button-danger:focus {
+  background-color: #e4354f;
+  color: #fff;
+}
+/* Active */
+.uk-button-danger:active,
+.uk-button-danger.uk-active {
+  background-color: #c91032;
+  color: #fff;
+}
+
+.uk-button-war {
+  background-color: rgb(255,204,0);
+  color: #fff;
+  text-decoration: none !important;
+}
+/* Hover */
+.uk-button-war:hover,
+.uk-button-war:focus {
+  background-color: rgb(255,204,0);
+  color: #fff;
+}
+/* Active */
+.uk-button-war:active,
+.uk-button-war.uk-active {
+  background-color:rgb(255,204,0);
+  color: #fff;
+}
+
+#myOverlay{position:absolute;height:200%;width:100%;display:none;}
+#myOverlay{background:black;opacity:.7;z-index:1;display:none;}
+
+#loadingMessage{
+ display:none;
+ color: white !important;
+ font-weight: bolder;
+ font-size: 40px;
+ position:absolute;
+ top:40%;
+ left:42%;
+ z-index:2;
+ }
+
+
+#load-bar {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 6px;
+  background-color: #fdba2c;
+  z-index:3;
+}
+
+.bar {
+  content: "";
+  display: inline;
+  position: absolute;
+  width: 0;
+  height: 100%;
+  left: 50%;
+  text-align: center;
+}
+.bar:nth-child(1) {
+  background-color: #da4733;
+  animation: loading 3s linear infinite;
+}
+.bar:nth-child(2) {
+  background-color: #3b78e7;
+  animation: loading 3s linear 1s infinite;
+}
+.bar:nth-child(3) {
+  background-color: #fdba2c;
+  animation: loading 3s linear 2s infinite;
+}
+@keyframes loading {
+    from {left: 50%; width: 0;z-index:100;}
+    33.3333% {left: 0; width: 100%;z-index: 10;}
+    to {left: 0; width: 100%;}
+}
+
+
+
+
+
+
+
+.inputdemoIcons {
+  /*
+.right-icon {
+  position: absolute;
+  top: 4px;
+  right: 2px;
+  left: auto;
+  margin-top: 0;
+}
+*/ }
+  .inputdemoIcons .inputIconDemo {
+    min-height: 48px; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.email {
+    color: green; }
+  .inputdemoIcons md-input-container:not(.md-input-invalid) > md-icon.name {
+    color: dodgerblue; }
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.email,
+  .inputdemoIcons md-input-container.md-input-invalid > md-icon.name {
+    color: red; }
