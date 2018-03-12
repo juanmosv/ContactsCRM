@@ -32,112 +32,11 @@
    </p>
    </aside>
  <div id="container" class="uk-container uk-container-small uk-position-relative" >
-  
-      <? for (var i = 0; i < data.length; i++) { 
-      
-       if (data[i][13] != 'Archive'){?>
-
-<form id="form-<?= data[i][8][1] ?>" class="pure-form-stacked toggle-disabled" onsubmit="handleFormSubmit(this)">
-   <!-- change the form action to your script url -->
- 
-    <fieldset class="contactsborder">
-             <label for="id"></label>
-            <input name="id" class="uk-input uk-hidden" type="text" value="<?= data[i][8][1] ?>">
-            <label for="handler"></label>
-            <input name="handler" class="uk-input uk-hidden" type="text" value="updateContact">
-            <table>
-            <tr  style="float:left; width:48%;">
-            <td><label for="Lead Type">Lead Type</label>
-            <select name="Lead Type" id="leadtype" disabled>
-            <? if (data[i][13] === undefined || data[i][13] === null){?>
-                <option></option>
-                <option>Call</option>
-                <option>Cold Call</option>
-                <option>Walk-in</option>
-                <option>Internet</option>
-                <option>Archive</option>
-                
-            <? } ?>
-             <? if (data[i][13] == 'Call'){?>
-                <option>Call</option>
-                <option>Cold Call</option>
-                <option>Walk-in</option>
-                <option>Internet</option>
-                <option>Archive</option>
-            <? } ?>
-            <? if (data[i][13] == 'Cold Call'){?>
-                <option>Cold Call</option>
-                <option>Call</option>
-                <option>Walk-in</option>
-                <option>Internet</option>
-                <option>Archive</option>
-            <? } ?>
-            <? if (data[i][13] == 'Walk-in'){?>
-                <option>Walk-in</option>
-                <option>Call</option>
-                <option>Cold Call</option>
-                <option>Internet</option>
-                <option>Archive</option>
-            <? } ?>
-            <? if (data[i][13] == 'Internet'){?>
-                <option>Internet</option>
-                <option>Call</option>
-                <option>Cold Call</option>
-                <option>Walk-in</option>
-                <option>Archive</option>
-            <? } ?>
-            </select>
-            </td></tr>
-             <tr style="float:right; width:50%;">
-            <td> <label for="First Contact">First Contact</label>
-            <input name="First Contact" class="uk-form-width-small" type="date" value="<?= data[i][10] ?>" disabled>
-            </td>
-            <td><label for="Last Contact">Last Contact</label>     
-            <input name="Last Contact" class="uk-form-width-small" type="date" value="<?= data[i][11] ?>" disabled>
-            </td>
-            <td><label for="Next Contact">Next Contact</label>  
-            <input name="Next Contact" class="uk-form-width-small" type="date" value="<?= data[i][12] ?>" disabled>
-         </td>
-         </tr>
-         </table>
-          <table>   
-         <tr style="margin-top: 25px">
-            <td> <label for="Name">Name</label>
-            <input name="Name" class="uk-form-width-medium" type="text" value="<?= data[i][0] ?>" disabled>
-            </td><td><label for="Phone">Phone</label>     
-            <input name="Phone" class="uk-form-width-small" type="text" value="<?= data[i][4] ?>" disabled>
-            </td><td><label for="Email">Email</label>  
-            <input name="Email" class="uk-form-width-medium" type="email" value="<?= data[i][2] ?>" disabled>
-         </td>
-         </tr>
-         </table>
-         <div style="float:left; width:80%;">
-          <label for="Notes">Notes</label>
-          <textarea name="Notes" class="uk-textarea" id="ctextarea" rows="3" placeholder="" disabled><?= data[i][7] ?></textarea>
-          <tr><td><button type="submit" id="save-<?= data[i][8][1] ?>" class="uk-button pure-button" style="display:none; height:30px; width: 85px; margin:2px;">Save</button></td></tr>
-          <tr><td><button type="reset" id="cancel-<?= data[i][8][1] ?>" onclick="resetContact(<?= data[i][8][1] ?>)" class="uk-button pure-button" style="display:none; height:30px; width: 85px; margin:2px;">Cancel</button></td></tr>
-         </div>
-       <div class="buttonborder">
-       <table style="float: right;">
-       <tr><td><button type="button" id="edit"   onclick="editContact(<?= data[i][8][1] ?>)"class="uk-button-primary pure-button" style="height:30px; width: 85px; margin:2px;">Edit</button></td></tr>
-       <tr><td><button type="button" id="remove" onclick="removeContact(<?= data[i][8][1] ?>)" class="uk-button-war pure-button" style="height:30px; width: 85px; margin:2px;">Remove</button></td></tr>
-       <tr><td><button type="button" id="delete" onclick="deleteContact(<?= data[i][8][1] ?>)" class="uk-button-danger pure-button" style="height:30px; width: 85px; margin:2px;">Delete</button></td></tr>
-       </table>
-      </div>
-        
-    </fieldset>
-       
-  </form> 
-       <? }  
-          } ?>
+ <!-- the script will insert the data here -->
 </div>
 </div>
 
   <!-- Form handler -->
- 
-
-
-
 
 <div id="formhandler" style="display:none;">
 
