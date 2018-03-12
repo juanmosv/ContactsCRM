@@ -30,7 +30,7 @@ chrome.identity.getAuthToken({interactive: true}, function(token) {
 	      'emails' : [],
 	      'phone': [],
 	      'notes': (entry['content'])? entry['content']['$t'] : [],
-	      'lead' : (entry['gContact$userDefinedField']['key']['Lead Type'])? entry['gContact$userDefinedField']['key']['Lead Type'] : [],	    
+	      'lead' : (entry['gContact$userDefinedField'])? customField(entry['gContact$userDefinedField'],'Lead Type') : []    
 	    };
                   if (entry['gd$email']) {
 	      var emails = entry['gd$email'];
@@ -123,3 +123,14 @@ div.innerHTML =
           });
     });
 };
+
+function customField(fields, field){
+ // Logs the value of all the custom fields for contact
+        for (var i = 0; i < fields.length; i++) {
+          if (fields[i]['key'] == field) {
+           return fields[i]['value'];  
+          }
+        }
+
+
+}
