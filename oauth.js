@@ -118,7 +118,7 @@ div.innerHTML =
       '</fieldset>\n'+
       '</form> \n';
 		  
-        div.className += 'mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp mdl-cell--8-col-tablet';		  
+        div.className += 'mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp mdl-cell--8-col-tablet cardpadding';		  
 	  }
 	  output.appendChild(div);             
                 
