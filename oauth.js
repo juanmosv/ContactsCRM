@@ -30,7 +30,10 @@ chrome.identity.getAuthToken({interactive: true}, function(token) {
 	      'emails' : [],
 	      'phone': [],
 	      'notes': (entry['content'])? entry['content']['$t'] : [],
-	      'lead' : (entry['gContact$userDefinedField'])? customField(entry['gContact$userDefinedField'],'Lead Type') : []    
+	      'lead' : (entry['gContact$userDefinedField'])? customField(entry['gContact$userDefinedField'],'Lead Type') : [],
+	      'first': (entry['gContact$userDefinedField'])? customField(entry['gContact$userDefinedField'],'First Contact') : [],
+	      'last' : (entry['gContact$userDefinedField'])? customField(entry['gContact$userDefinedField'],'Last Contact') : [],
+	      'next' : (entry['gContact$userDefinedField'])? customField(entry['gContact$userDefinedField'],'Next Contact') : []    
 	    };
                   if (entry['gd$email']) {
 	      var emails = entry['gd$email'];
@@ -58,7 +61,7 @@ chrome.identity.getAuthToken({interactive: true}, function(token) {
 	var div = document.createElement("div");
 
 div.innerHTML =
-    '<form id="form-'+ contact['id'] +'" class="pure-form-stacked toggle-disabled" onsubmit="handleFormSubmit(this)">\n'+
+    '<form id="form-'+ contact['id'] +'" onsubmit="handleFormSubmit(this)">\n'+
      '<fieldset class="contactsborder">\n'+
             '<label for="id"></label>\n'+
             '<input name="id" class="uk-input uk-hidden" type="text" value="'+ contact['id'] +'">\n'+
@@ -78,13 +81,13 @@ div.innerHTML =
              '</td></tr>\n'+
              '<tr style="float:right; width:50%;">\n'+
               '<td> <label for="First Contact">First Contact</label>\n'+
-               '<input name="First Contact" class="uk-form-width-small" type="date" value="<?= data[i][10] ?>" disabled>\n'+
+               '<input name="First Contact" class="uk-form-width-small" type="date" value="'+ contact['first'] + '" disabled>\n'+
               '</td>\n'+
               '<td><label for="Last Contact">Last Contact</label>\n'+     
-              '<input name="Last Contact" class="uk-form-width-small" type="date" value="<?= data[i][11] ?>" disabled>\n'+
+              '<input name="Last Contact" class="uk-form-width-small" type="date" value="'+ contact['last'] + '" disabled>\n'+
              '</td>\n'+
              '<td><label for="Next Contact">Next Contact</label>\n'+  
-             '<input name="Next Contact" class="uk-form-width-small" type="date" value="<?= data[i][12] ?>" disabled>\n'+
+             '<input name="Next Contact" class="uk-form-width-small" type="date" value="'+ contact['next'] + '" disabled>\n'+
              '</td>\n'+
            '</tr>\n'+
           '</table>\n'+
@@ -102,18 +105,20 @@ div.innerHTML =
          '<div style="float:left; width:80%;">\n'+
           '<label for="Notes">Notes</label>\n'+
           '<textarea name="Notes" class="uk-textarea" id="ctextarea" rows="3" placeholder="" disabled>' + contact['notes'] + '</textarea>\n'+
-          '<tr><td><button type="submit" id="save-<?= data[i][8][1] ?>" class="uk-button pure-button" style="display:none; height:30px; width: 85px; margin:2px;">Save</button></td></tr>\n'+
-          '<tr><td><button type="reset" id="cancel-<?= data[i][8][1] ?>" onclick="resetContact(<?= data[i][8][1] ?>)" class="uk-button pure-button" style="display:none; height:30px; width: 85px; margin:2px;">Cancel</button></td></tr>\n'+
+          '<tr><td><button type="submit" id="save-'+ contact['id'] + '" class="uk-button pure-button" style="display:none; height:30px; width: 85px; margin:2px;">Save</button></td></tr>\n'+
+          '<tr><td><button type="reset" id="cancel-'+ contact['id'] + '" onclick="resetContact('+ contact['id'] +')" class="uk-button pure-button" style="display:none; height:30px; width: 85px; margin:2px;">Cancel</button></td></tr>\n'+
          '</div>\n'+
        '<div class="buttonborder">\n'+
        '<table style="float: right;">\n'+
-       '<tr><td><button type="button" id="edit"   onclick="editContact(<?= data[i][8][1] ?>)"class="uk-button-primary pure-button" style="height:30px; width: 85px; margin:2px;">Edit</button></td></tr>\n'+
-       '<tr><td><button type="button" id="remove" onclick="removeContact(<?= data[i][8][1] ?>)" class="uk-button-war pure-button" style="height:30px; width: 85px; margin:2px;">Remove</button></td></tr>\n'+
-       '<tr><td><button type="button" id="delete" onclick="deleteContact(<?= data[i][8][1] ?>)" class="uk-button-danger pure-button" style="height:30px; width: 85px; margin:2px;">Delete</button></td></tr>\n'+
+       '<tr><td><button type="button" id="edit"   onclick="editContact('+ contact['id'] + ')"class="uk-button-primary pure-button" style="height:30px; width: 85px; margin:2px;">Edit</button></td></tr>\n'+
+       '<tr><td><button type="button" id="remove" onclick="removeContact('+ contact['id'] + ')" class="uk-button-war pure-button" style="height:30px; width: 85px; margin:2px;">Remove</button></td></tr>\n'+
+       '<tr><td><button type="button" id="delete" onclick="deleteContact('+ contact['id'] + ')" class="uk-button-danger pure-button" style="height:30px; width: 85px; margin:2px;">Delete</button></td></tr>\n'+
        '</table>\n'+
       '</div>\n'+
       '</fieldset>\n'+
       '</form> \n';
+		  
+        div.className += 'mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp mdl-cell--8-col-tablet';		  
 	  }
 	  output.appendChild(div);             
                 
