@@ -25,43 +25,39 @@
   </div>
   <div class="loadingMessage" id="loadingMessage-c">Saving, please wait!</div>
  <!-- START HERE -->
-  <aside> 
-   <p class="content-tl"><img src="https://lh3.googleusercontent.com/vJuw_0OAOjREz0NLOrXbiOOg3O8saoAWpCH6vHSOh07G3FFpmRksWEpI1sn0vIS2VSsPxDUpu_oeNEjlzIduxDOhxfYyV6GD-_h5eA=h120" alt="" border="0" width="40px" height="">
+ <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">
+      <img src="https://lh3.googleusercontent.com/vJuw_0OAOjREz0NLOrXbiOOg3O8saoAWpCH6vHSOh07G3FFpmRksWEpI1sn0vIS2VSsPxDUpu_oeNEjlzIduxDOhxfYyV6GD-_h5eA=h120" alt="" border="0" width="40px" height="">
    Contacts Dashboard
-   </p>
-   <p style="float:right;margin: 0.4em 2em 0px 0px;">
-   <input class="uk-button-success pure-button" style="height:32px !important;" type="button" id="showform" value="Create Contact">
-   </p>
-   </aside>
- <div id="container" class="uk-container uk-container-small uk-position-relative" >
- <!-- the script will insert the data here -->
-</div>
-</div>
-
-  <!-- Form handler -->
-
-<div id="formhandler" style="display:none;">
-
-  <div class="myOverlay" id="myOverlay-f"></div>
-  <div class="load-bar" id="load-bar-f">
-  <div class="bar"></div>
-  <div class="bar"></div>
-  <div class="bar"></div>
+   </span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Create Conctacs</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Title</span>
   </div>
-  <div class="loadingMessage" id="loadingMessage-f">Sending... </div>
- <!-- START HERE -->
- <aside> 
-   <p class="content-tl"><img src="https://lh3.googleusercontent.com/vJuw_0OAOjREz0NLOrXbiOOg3O8saoAWpCH6vHSOh07G3FFpmRksWEpI1sn0vIS2VSsPxDUpu_oeNEjlzIduxDOhxfYyV6GD-_h5eA=h120" alt="" border="0" width="40px" height="">
-   Create a new Contact
-   </p>
-   <p style="float:right;margin: 0.4em 2em 0px 0px;">
-   
-   <input class="uk-button-success pure-button" style="height:32px !important;" type="button" onclick="openAgain(<?= ScriptApp.getService().getUrl() + "" ?>)" value="Contacts Dashboard">
-    </p>
-   </aside>
- <div id="container" class="uk-container uk-container-small uk-position-relative" >
-
-<form id="cform" class="pure-form-stacked toggle-disabled" onsubmit="handleContactSubmit(this)">
+  <main class="mdl-layout__content">
+    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+      <div class="page-content">
+      <!-- Your content goes here -->
+      <div class="mdl-grid" id="container">
+    <!-- the script will insert the data here -->
+    </div>
+      </div>
+    </section>
+    <!-- Form handler -->
+    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+      <div class="page-content">
+      <!-- Your content goes here -->
+      <form id="cform" class="pure-form-stacked toggle-disabled" onsubmit="handleContactSubmit(this)">
    <!-- change the form action to your script url -->
  
     <fieldset style="border: 0; font-size:14px !important;">
@@ -131,7 +127,9 @@
     </fieldset>
        
   </form> 
-        
+      </div>
+    </section>
+  </main>
 </div>
 </div>
 </body>
