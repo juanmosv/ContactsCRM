@@ -64,9 +64,9 @@ div.innerHTML =
     '<form id="form-'+ contact['id'] +'" onsubmit="handleFormSubmit(this)">\n'+
      '<fieldset class="contactsborder">\n'+
             '<label for="id"></label>\n'+
-            '<input name="id" class="uk-input uk-hidden" type="text" value="'+ contact['id'] +'">\n'+
+            '<input name="id" class="hidden" type="text" value="'+ contact['id'] +'">\n'+
             '<label for="handler"></label>\n'+
-            '<input name="handler" class="uk-input uk-hidden" type="text" value="updateContact">\n'+
+            '<input name="handler" class="hidden" type="text" value="updateContact">\n'+
             '<table>\n'+
             '<tr style="float:left; width:48%;">\n'+
             '<td><label for="Lead Type">Lead Type</label>\n'+
