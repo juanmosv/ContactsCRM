@@ -62,14 +62,16 @@ chrome.identity.getAuthToken({interactive: true}, function(token) {
 
 div.innerHTML =
     '<form id="form-'+ contact['id'] +'" onsubmit="handleFormSubmit(this)">\n'+
-     '<fieldset class="contactsborder">\n'+
+      '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
+    '<input class="mdl-textfield__input" type="text" id="sample3" value="test">'+
+    '<label class="mdl-textfield__label" for="sample3">Text...</label>'+
+  '</div>'+
             '<label for="id"></label>\n'+
             '<input name="id" class="hidden" type="text" value="'+ contact['id'] +'">\n'+
             '<label for="handler"></label>\n'+
             '<input name="handler" class="hidden" type="text" value="updateContact">\n'+
-            '<table>\n'+
-            '<tr style="float:left; width:48%;">\n'+
-            '<td><label for="Lead Type">Lead Type</label>\n'+
+            '<div>'+
+            '<label for="Lead Type">Lead Type</label>\n'+
             '<select name="Lead Type" id="leadtype" disabled>\n'+
              '<option>'+ contact['lead'] + '</option>\n'+
              '<option>Call</option>\n'+
@@ -78,30 +80,33 @@ div.innerHTML =
              '<option>Internet</option>\n'+
              '<option>Archive</option>\n'+
              '</select>\n'+
-             '</td></tr>\n'+
-             '<tr style="float:right; width:50%;">\n'+
-              '<td> <label for="First Contact">First Contact</label>\n'+
-               '<input name="First Contact" class="uk-form-width-small" type="date" value="'+ contact['first'] + '" disabled>\n'+
-              '</td>\n'+
-              '<td><label for="Last Contact">Last Contact</label>\n'+     
-              '<input name="Last Contact" class="uk-form-width-small" type="date" value="'+ contact['last'] + '" disabled>\n'+
-             '</td>\n'+
-             '<td><label for="Next Contact">Next Contact</label>\n'+  
-             '<input name="Next Contact" class="uk-form-width-small" type="date" value="'+ contact['next'] + '" disabled>\n'+
-             '</td>\n'+
-           '</tr>\n'+
-          '</table>\n'+
-          '<table>\n'+ 
-         '<tr style="margin-top: 25px">\n'+
-         '<td> <label for="Name">Name</label>\n'+
-         '<input name="Name" id="name" class="uk-form-width-medium" type="text" value="' + contact['name'] + '" disabled>\n'+
-         '</td><td><label for="Phone">Phone</label>\n'+   
-         '<input name="Phone" class="uk-form-width-small" type="text" value="' + contact['phone']+ '" disabled>\n'+
-         '</td><td><label for="Email">Email</label>\n'+  
-         '<input name="Email" id="Email" class="uk-form-width-medium" type="email" value="' + contact['emails']+ '" disabled>\n'+
-         '</td>\n'+
-         '</tr>\n'+
-         '</table>\n'+
+             '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
+             '<label class="mdl-textfield__label" for="first">First Contact</label>'+
+	         '<input class="mdl-textfield__input" type="date" id="first" value="' + contact['first'] + '">'+
+	         '</div>'+
+             '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
+             '<label class="mdl-textfield__label" for="last">Last Contact</label>'+
+	         '<input class="mdl-textfield__input" type="date" id="last" value="' + contact['last'] + '">'+
+	         '</div>'+
+             '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
+             '<label class="mdl-textfield__label" for="first">Next Contact</label>'+
+	         '<input class="mdl-textfield__input" type="date" id="next" value="' + contact['next'] + '">'+
+	         '</div>'+
+            '</div>'+
+         '<div>'+
+     '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
+     '<label class="mdl-textfield__label" for="name">Name</label>'+
+	 '<input class="mdl-textfield__input" type="text" id="name" value="' + contact['name'] + '">'+
+	 '</div>'+
+     '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
+	 '<input class="mdl-textfield__input" type="text" id="phone" value="' + contact['phone'] + '">'+
+     '<label class="mdl-textfield__label" for="phone">Phone</label>'+
+	 '</div>'+
+     '<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">'+
+	 '<input class="mdl-textfield__input" type="text" id="email" value="' + contact['emails'] + '">'+
+     '<label class="mdl-textfield__label" for="email">Email</label>'+
+	 '</div>'+
+     '</div>'+
          '<div style="float:left; width:80%;">\n'+
           '<label for="Notes">Notes</label>\n'+
           '<textarea name="Notes" class="uk-textarea" id="ctextarea" rows="3" placeholder="" disabled>' + contact['notes'] + '</textarea>\n'+
@@ -115,7 +120,6 @@ div.innerHTML =
        '<tr><td><button type="button" id="delete" onclick="deleteContact('+ contact['id'] + ')" class="uk-button-danger pure-button" style="height:30px; width: 85px; margin:2px;">Delete</button></td></tr>\n'+
        '</table>\n'+
       '</div>\n'+
-      '</fieldset>\n'+
       '</form> \n';
 		  
         div.className += 'mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp mdl-cell--8-col-tablet cardpadding';		  
