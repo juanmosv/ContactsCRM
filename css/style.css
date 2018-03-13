@@ -1,31 +1,5 @@
-aside {
-background: #2a56c6;
-    background-color: rgb(42, 86, 198);
-    background-image: none;
-    background-repeat: repeat;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-origin: padding-box;
-    background-position-x: 0%;
-    background-position-y: 0%;
-    background-size: auto auto;
-color: #fff !important;
-position: fixed;
-z-index: 2;
-width: 100%;
-min-width: 680px;
-height: 45px;
-transition: box-shadow 250ms;
-    transition-property: box-shadow;
-    transition-duration: 250ms;
-    transition-timing-function: ease;
-    transition-delay: 0s;
-box-shadow: 0 0 10px #9e9e9e;
-}
-
-#container{
-min-width: 680px;
-padding-top:50px;
+.cardpadding {
+ padding: 10x;
 }
 
 textarea {
@@ -33,25 +7,6 @@ textarea {
   resize: none;
 }
 
-.contactsborder {
-    border-radius: 3px;
-    margin-bottom: 5px;
-    font-size:11px;
-}
-
-label {
-
-    font-weight:bolder;
-}
-input {
-    display: inline-block !important;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    height: 18px !important;
-    float: left;
-    padding-left: 2px;
-    margin-right: 5px !important;
-}
 
 #cform input {
      height: 25px !important;
