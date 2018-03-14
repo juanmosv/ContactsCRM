@@ -1,5 +1,9 @@
 .cardpadding {
- padding: 10x;
+ padding: 10px;
+}
+
+.hidden{
+ display: none !important;
 }
 
 textarea {
